@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 4 avr. 2016 22:24:01 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="fr.utbm.gestion_de_formations_en_ligne.entity.Course" table="COURSE" schema="ORACLE" optimistic-lock="version">
+        <id name="code" type="string">
+            <column name="CODE" length="5" />
+            <generator class="assigned" />
+        </id>
+        <property name="title" type="string">
+            <column name="TITLE" length="35" not-null="true" />
+        </property>
+        <set name="courseSessions" table="COURSE_SESSION" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="COURSE_CODE" length="5" not-null="true" />
+            </key>
+            <one-to-many class="fr.utbm.gestion_de_formations_en_ligne.entity.CourseSession" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 4 avr. 2016 22:24:01 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="fr.utbm.gestion_de_formations_en_ligne.entity.Client" table="CLIENT" schema="ORACLE" optimistic-lock="version">
+        <id name="id" type="short">
+            <column name="ID" precision="4" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="courseSession" class="fr.utbm.gestion_de_formations_en_ligne.entity.CourseSession" fetch="select">
+            <column name="COURSE_SESSION_ID" precision="4" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="lastname" type="string">
+            <column name="LASTNAME" length="20" not-null="true" />
+        </property>
+        <property name="firstname" type="string">
+            <column name="FIRSTNAME" length="35" not-null="true" />
+        </property>
+        <property name="address" type="string">
+            <column name="ADDRESS" length="35" not-null="true" />
+        </property>
+        <property name="phone" type="string">
+            <column name="PHONE" length="13" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="EMAIL" length="35" />
+        </property>
+    </class>
+</hibernate-mapping>

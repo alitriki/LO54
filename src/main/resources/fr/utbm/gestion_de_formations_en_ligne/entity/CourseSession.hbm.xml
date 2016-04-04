@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 4 avr. 2016 22:24:01 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="fr.utbm.gestion_de_formations_en_ligne.entity.CourseSession" table="COURSE_SESSION" schema="ORACLE" optimistic-lock="version">
+        <id name="id" type="short">
+            <column name="ID" precision="4" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="course" class="fr.utbm.gestion_de_formations_en_ligne.entity.Course" fetch="select">
+            <column name="COURSE_CODE" length="5" not-null="true" />
+        </many-to-one>
+        <many-to-one name="location" class="fr.utbm.gestion_de_formations_en_ligne.entity.Location" fetch="select">
+            <column name="LOCATION_ID" precision="4" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="startDate" type="date">
+            <column name="START_DATE" length="7" not-null="true" />
+        </property>
+        <property name="endDate" type="date">
+            <column name="END_DATE" length="7" not-null="true" />
+        </property>
+        <set name="clients" table="CLIENT" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="COURSE_SESSION_ID" precision="4" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="fr.utbm.gestion_de_formations_en_ligne.entity.Client" />
+        </set>
+    </class>
+</hibernate-mapping>
