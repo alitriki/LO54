@@ -11,6 +11,12 @@
         <property name="title" type="string">
             <column name="TITLE" length="35" not-null="true" />
         </property>
+        <property name="description" type="string">
+            <column name="DESCRIPTION" length="255" not-null="true" />
+        </property>
+        <property name="picture" type="string">
+            <column name="PICTURE" length="255" />
+        </property>
         <set name="courseSessions" table="COURSE_SESSION" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="COURSE_CODE" length="5" not-null="true" />
