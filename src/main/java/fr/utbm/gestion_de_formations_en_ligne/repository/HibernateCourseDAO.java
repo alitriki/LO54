@@ -25,4 +25,6 @@ public class HibernateCourseDAO {
         List<Course> listCourse = query.list();
         return listCourse;
     }
+    
+    
 }
