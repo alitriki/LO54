@@ -3,14 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fr.utbm.gestion_de_formations_en_ligne.service;
+package fr.utbm.gestion_de_formations_en_ligne.repository;
 
 /**
  *
  * @author Eddie
  */
-public class CourseService {
-    
-   // public get
+public class HibernateCourseDAO {
     
 }
