@@ -17,7 +17,7 @@ import org.hibernate.Session;
  */
 public class HibernateCourseDAO {
     
-    public List<Course> getAllCourses()
+    public List<Course> getAllCoursesHibernate()
     {
         Session session = HibernateUtil.getSessionFactory().openSession();
         
@@ -26,5 +26,15 @@ public class HibernateCourseDAO {
         return listCourse;
     }
     
+    public List<Course> getAllCoursesHibernate(String motCle)
+    {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        String keyWord = "%";
+        keyWord.concat(motCle).concat("%");
+        Query query = session.createQuery("from COURSE as course where course.TITLE like :motcle");
+        query.setString(0, keyWord);
+        List<Course> listCourse = query.list();
+        return listCourse;
+    }        
     
 }
