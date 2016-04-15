@@ -14,13 +14,12 @@ import org.hibernate.Session;
  * @author Ali
  */
 public class HibernateClientDAO {
-    
-    public void insertClient(Client client){
+
+    public void insertClientHibernate(Client client) {
         Session session = HibernateUtil.getSessionFactory().openSession();
-	    session.beginTransaction();
-	    session.persist(client);
-	    session.getTransaction().commit();
-        
+        session.beginTransaction();
+        session.persist(client);
+        session.getTransaction().commit();
     }
-    
+
 }
