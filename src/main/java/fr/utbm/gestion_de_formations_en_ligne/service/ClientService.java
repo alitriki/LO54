@@ -13,9 +13,10 @@ import fr.utbm.gestion_de_formations_en_ligne.repository.HibernateClientDAO;
  * @author Ali
  */
 public class ClientService {
+
     public void insertClientService(Client client) {
-        HibernateClientDAO hcd=new HibernateClientDAO();
+        HibernateClientDAO hcd = new HibernateClientDAO();
         hcd.insertClientHibernate(client);
     }
-    
+
 }

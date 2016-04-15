@@ -10,15 +10,15 @@ package fr.utbm.gestion_de_formations_en_ligne.entity;
  * @author Eddie
  */
 public class Paginate {
+
     private int firstResult;
     private int maxResult;
-    
-    
+
     public Paginate(int firstResult, int maxResult) {
         this.firstResult = firstResult;
         this.maxResult = maxResult;
     }
-    
+
     public Paginate() {
         this.firstResult = 0;
         this.maxResult = 10;
@@ -40,7 +40,7 @@ public class Paginate {
         this.maxResult = maxResult;
     }
 
-    public void next(){
-        this.setFirstResult(this.getFirstResult()+this.getMaxResult());
+    public void next() {
+        this.setFirstResult(this.getFirstResult() + this.getMaxResult());
     }
 }

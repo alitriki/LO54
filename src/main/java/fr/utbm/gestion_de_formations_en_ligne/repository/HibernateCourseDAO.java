@@ -22,7 +22,7 @@ public class HibernateCourseDAO {
     public List<Course> getAllCoursesHibernate()
     {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        
+
         Query query = session.createQuery("from Course");
         List<Course> listCourse = query.list();
         return listCourse;

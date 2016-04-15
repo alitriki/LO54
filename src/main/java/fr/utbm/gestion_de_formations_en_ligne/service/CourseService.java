@@ -5,12 +5,35 @@
  */
 package fr.utbm.gestion_de_formations_en_ligne.service;
 
+import fr.utbm.gestion_de_formations_en_ligne.entity.Course;
+import fr.utbm.gestion_de_formations_en_ligne.entity.Location;
+import fr.utbm.gestion_de_formations_en_ligne.repository.HibernateCourseDAO;
+import java.util.Date;
+import java.util.List;
+
 /**
  *
  * @author Eddie
  */
 public class CourseService {
-    
-   // public get
-    
+
+    public List<Course> getAllCoursesService() {
+        HibernateCourseDAO hcd = new HibernateCourseDAO();
+        return hcd.getAllCoursesHibernate();
+    }
+
+    public List<Course> getAllCoursesService(String motCle) {
+        HibernateCourseDAO hcd = new HibernateCourseDAO();
+        return hcd.getAllCoursesHibernate(motCle);
+    }
+
+    public List<Course> getAllCoursesAtLocationService(Location location) {
+        HibernateCourseDAO hcd = new HibernateCourseDAO();
+        return hcd.getAllCoursesAtLocationHibernate(location);
+    }
+
+    public List<Course> getAllCoursesAtDateService(Date date) {
+        HibernateCourseDAO hcd = new HibernateCourseDAO();
+        return hcd.getAllCoursesAtDateHibernate(date);
+    }
 }

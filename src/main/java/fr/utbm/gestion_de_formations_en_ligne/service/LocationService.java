@@ -14,8 +14,9 @@ import java.util.List;
  * @author Ali
  */
 public class LocationService {
-   public List<Location> getAllLocationsService(){
-       HibernateLocationDAO hld=new HibernateLocationDAO();
-       return hld.getAllLocationsHibernate();
-   }
+
+    public List<Location> getAllLocationsService() {
+        HibernateLocationDAO hld = new HibernateLocationDAO();
+        return hld.getAllLocationsHibernate();
+    }
 }
