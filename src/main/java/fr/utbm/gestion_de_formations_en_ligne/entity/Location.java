@@ -51,7 +51,10 @@ public class Location  implements java.io.Serializable {
         this.courseSessions = courseSessions;
     }
 
-
+    @Override
+    public String toString() {
+        return "Location{" + "id=" + id + ", city=" + city + ", courseSessions=" + courseSessions + '}';
+    }
 
 
 }
