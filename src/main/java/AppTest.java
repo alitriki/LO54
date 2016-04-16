@@ -17,11 +17,9 @@ import java.util.List;
 public class AppTest {
     
     public static void main(String[] args) {
-        System.out.println("Liste des sessions");
+        
         CourseService cs = new CourseService();
         List<Course> listCourse =  cs.getAllCoursesService();
-        for (Course c : listCourse) {
-            c.toString();
-        }
+        System.out.println("Liste des sessions"+listCourse.toString());
     }
 }
