@@ -18,18 +18,16 @@ import org.hibernate.Session;
  * @author Eddie
  */
 public class HibernateCourseDAO {
-    
-    public List<Course> getAllCoursesHibernate()
-    {
+
+    public List<Course> getAllCoursesHibernate() {
         Session session = HibernateUtil.getSessionFactory().openSession();
 
         Query query = session.createQuery("from Course");
         List<Course> listCourse = query.list();
         return listCourse;
     }
-    
-    public List<Course> getAllCoursesHibernate(String motCle)
-    {
+
+    public List<Course> getAllCoursesHibernate(String motCle) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         String keyWord = "%";
         keyWord.concat(motCle).concat("%");
@@ -37,12 +35,11 @@ public class HibernateCourseDAO {
         query.setString(0, keyWord);
         List<Course> listCourse = query.list();
         return listCourse;
-    }        
-    
-    public List<Course> getAllCoursesAtDateHibernate(Date date)
-    {
+    }
+
+    public List<Course> getAllCoursesAtDateHibernate(Date date) {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        
+
         Query query = session.createQuery("from Course as course"
                 + "                        inner join CourseSession as coursesession"
                 + "                        where :date <= coursesession.startDate");
@@ -50,11 +47,10 @@ public class HibernateCourseDAO {
         List<Course> listCourse = query.list();
         return listCourse;
     }
-    
-    public List<Course> getAllCoursesAtLocationHibernate(Location location)
-    {
+
+    public List<Course> getAllCoursesAtLocationHibernate(Location location) {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        
+
         Query query = session.createQuery("from Course as course"
                 + "                        inner join CourseSession as coursesession"
                 + "                        inner join Location as location"
@@ -63,5 +59,5 @@ public class HibernateCourseDAO {
         List<Course> listCourse = query.list();
         return listCourse;
     }
-    
+
 }
