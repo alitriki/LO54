@@ -6,7 +6,9 @@
     <class name="fr.utbm.gestion_de_formations_en_ligne.entity.Client" table="CLIENT" schema="ORACLE" optimistic-lock="version">
         <id name="id" type="short">
             <column name="ID" precision="4" scale="0" />
-            <generator class="assigned" />
+            <generator class="sequence">
+                <param name="sequence">client_seq</param>
+            </generator>    
         </id>
         <many-to-one name="courseSession" class="fr.utbm.gestion_de_formations_en_ligne.entity.CourseSession" fetch="select">
             <column name="COURSE_SESSION_ID" precision="4" scale="0" not-null="true" />

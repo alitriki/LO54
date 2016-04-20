@@ -6,7 +6,9 @@
     <class name="fr.utbm.gestion_de_formations_en_ligne.entity.Location" table="LOCATION" schema="ORACLE" optimistic-lock="version">
         <id name="id" type="short">
             <column name="ID" precision="4" scale="0" />
-            <generator class="assigned" />
+            <generator class="sequence">
+                <param name="sequence">location_seq</param>
+            </generator>   
         </id>
         <property name="city" type="string">
             <column name="CITY" length="20" not-null="true" />

@@ -81,12 +81,12 @@ public class CourseSession  implements java.io.Serializable {
     public void setClients(Set clients) {
         this.clients = clients;
     }
-
+   /*
     @Override
     public String toString() {
         return "CourseSession{" + "id=" + id + ", course=" + course + ", location=" + location + ", startDate=" + startDate + ", endDate=" + endDate + ", clients=" + clients + '}';
     }
-
+    */
 }
 
 
