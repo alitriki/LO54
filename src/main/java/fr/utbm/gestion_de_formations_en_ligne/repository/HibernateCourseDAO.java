@@ -6,9 +6,12 @@
 package fr.utbm.gestion_de_formations_en_ligne.repository;
 
 import fr.utbm.gestion_de_formations_en_ligne.entity.Course;
+import fr.utbm.gestion_de_formations_en_ligne.entity.CourseSession;
 import fr.utbm.gestion_de_formations_en_ligne.entity.Location;
 import fr.utbm.gestion_de_formations_en_ligne.util.HibernateUtil;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -38,11 +41,23 @@ public class HibernateCourseDAO {
     public List<Course> getAllCoursesAtDateHibernate(Date date) {
         Session session = HibernateUtil.getSessionFactory().openSession();
 
-        Query query = session.createQuery("from Course as course"
-                + "                        where ? <= course.courseSessions.startDate");
-        query.setDate(0, date);
+        Query query = session.createQuery("from Course");
         List<Course> listCourse = query.list();
-        return listCourse;
+        
+        List<Course> listCourseOK = new ArrayList<>();
+        
+        for (Course c : listCourse){
+            for (Iterator it = c.getCourseSessions().iterator(); it.hasNext();) {
+                CourseSession cs = (CourseSession) it.next();
+                System.out.println(cs.getStartDate()+"Date de cs");
+                System.out.println(date+"date param");
+                
+                if (cs.getStartDate().after(date)){
+                    listCourseOK.add(c);
+                }
+            }
+        }
+        return listCourseOK;
     }
 
     public List<Course> getAllCoursesAtLocationHibernate(Location location) {
