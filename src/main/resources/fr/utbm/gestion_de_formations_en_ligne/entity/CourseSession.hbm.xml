@@ -10,9 +10,6 @@
                 <param name="sequence">course_session_seq</param>
             </generator>   
         </id>
-        <many-to-one name="course" class="fr.utbm.gestion_de_formations_en_ligne.entity.Course" fetch="select">
-            <column name="COURSE_CODE" length="5" not-null="true" />
-        </many-to-one>
         <many-to-one name="location" class="fr.utbm.gestion_de_formations_en_ligne.entity.Location" fetch="select">
             <column name="LOCATION_ID" precision="4" scale="0" not-null="true" />
         </many-to-one>
