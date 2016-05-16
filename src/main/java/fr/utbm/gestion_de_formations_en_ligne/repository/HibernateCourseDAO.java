@@ -63,10 +63,7 @@ public class HibernateCourseDAO {
     public List<Course> getAllCoursesAtLocationHibernate(Location location) {
         Session session = HibernateUtil.getSessionFactory().openSession();
 
-        Query query = session.createQuery("from Course as course"
-                + "                        inner join CourseSession as coursesession"
-                + "                        inner join Location as location"
-                + "                        where location.city = :ville");
+        Query query = session.createQuery("from Course as course where location.city = ?");
         query.setString(0, location.getCity());
         List<Course> listCourse = query.list();
         return listCourse;

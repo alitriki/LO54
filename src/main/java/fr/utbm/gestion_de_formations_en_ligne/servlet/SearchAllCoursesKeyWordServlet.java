@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Ali
  */
-public class SearchAllCoursesServlet extends HttpServlet {
+public class SearchAllCoursesKeyWordServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,10 +34,13 @@ public class SearchAllCoursesServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         CourseService cs = new CourseService();
-        List<Course> allCourses = cs.getAllCoursesService();
+
+        /**
+         * pass key in parameter
+         */
+        List<Course> allCourses = cs.getAllCoursesService(request.getAttribute("key").toString());
         request.setAttribute("allCourses", allCourses);
         request.getRequestDispatcher("jsp/Courses.jsp").forward(request, response);
-
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

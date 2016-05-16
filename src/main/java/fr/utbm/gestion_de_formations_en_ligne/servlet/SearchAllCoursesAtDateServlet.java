@@ -5,12 +5,10 @@
  */
 package fr.utbm.gestion_de_formations_en_ligne.servlet;
 
-import fr.utbm.gestion_de_formations_en_ligne.entity.Course;
-import fr.utbm.gestion_de_formations_en_ligne.service.CourseService;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,7 +17,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Ali
  */
-public class SearchAllCoursesServlet extends HttpServlet {
+@WebServlet(name = "SearchAllCoursesAtDateServlet", urlPatterns = {"/CoursesAtDate"})
+public class SearchAllCoursesAtDateServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,11 +32,8 @@ public class SearchAllCoursesServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        CourseService cs = new CourseService();
-        List<Course> allCourses = cs.getAllCoursesService();
-        request.setAttribute("allCourses", allCourses);
-        request.getRequestDispatcher("jsp/Courses.jsp").forward(request, response);
-
+        
+        /** créer une date à partir d'un string (string généré par type date en html)*/
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

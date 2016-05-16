@@ -4,9 +4,17 @@
         <servlet-name>SearchAllCoursesServlet</servlet-name>
         <servlet-class>fr.utbm.gestion_de_formations_en_ligne.servlet.SearchAllCoursesServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SearchAllCoursesKeyWordServlet</servlet-name>
+        <servlet-class>fr.utbm.gestion_de_formations_en_ligne.servlet.SearchAllCoursesKeyWordServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SearchAllCoursesServlet</servlet-name>
         <url-pattern>/Courses</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchAllCoursesKeyWordServlet</servlet-name>
+        <url-pattern>/CoursesKeyWord</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
