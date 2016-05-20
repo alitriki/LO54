@@ -17,11 +17,11 @@ import org.hibernate.Session;
  */
 public class HibernateLocationDAO {
 
-    public List<Location> getAllLocationsHibernate() {
+    public List<String> getAllLocationsHibernate() {
         Session session = HibernateUtil.getSessionFactory().openSession();
 
-        Query query = session.createQuery("from Location");
-        List<Location> listLocation = query.list();
+        Query query = session.createQuery("city from Location");
+        List<String> listLocation = query.list();
         return listLocation;
     }
 }

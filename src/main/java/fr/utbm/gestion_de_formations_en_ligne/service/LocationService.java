@@ -5,7 +5,6 @@
  */
 package fr.utbm.gestion_de_formations_en_ligne.service;
 
-import fr.utbm.gestion_de_formations_en_ligne.entity.Location;
 import fr.utbm.gestion_de_formations_en_ligne.repository.HibernateLocationDAO;
 import java.util.List;
 
@@ -15,7 +14,7 @@ import java.util.List;
  */
 public class LocationService {
 
-    public List<Location> getAllLocationsService() {
+    public List<String> getAllLocationsService() {
         HibernateLocationDAO hld = new HibernateLocationDAO();
         return hld.getAllLocationsHibernate();
     }

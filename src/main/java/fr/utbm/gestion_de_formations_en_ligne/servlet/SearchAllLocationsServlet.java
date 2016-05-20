@@ -5,11 +5,8 @@
  */
 package fr.utbm.gestion_de_formations_en_ligne.servlet;
 
-import fr.utbm.gestion_de_formations_en_ligne.entity.Course;
-import fr.utbm.gestion_de_formations_en_ligne.service.CourseService;
+import fr.utbm.gestion_de_formations_en_ligne.service.LocationService;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Date;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Ali
  */
-@WebServlet(name = "SearchAllCoursesAtDateServlet", urlPatterns = {"/CoursesAtDate"})
-public class SearchAllCoursesAtDateServlet extends HttpServlet {
+@WebServlet(name = "SearchAllLocations", urlPatterns = {"/AllLocations"})
+public class SearchAllLocationsServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,12 +33,13 @@ public class SearchAllCoursesAtDateServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        CourseService cs = new CourseService();
-        Date d=(Date)request.getAttribute("date");
-        List<Course> allCourses = cs.getAllCoursesAtDateService(d);
-        request.setAttribute("allCourses", allCourses);
-        request.getRequestDispatcher("jsp/Courses.jsp").forward(request, response);
-        /** créer une date à partir d'un string (string généré par type date en html)*/
+        LocationService ls = new LocationService();
+        List<String> allLocations = ls.getAllLocationsService();
+        request.setAttribute("allLocations", allLocations);
+        /**
+         * create Locations JSP
+         */
+        request.getRequestDispatcher("jsp/Locations.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

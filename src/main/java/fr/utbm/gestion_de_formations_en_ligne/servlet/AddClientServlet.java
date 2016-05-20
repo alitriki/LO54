@@ -5,12 +5,10 @@
  */
 package fr.utbm.gestion_de_formations_en_ligne.servlet;
 
-import fr.utbm.gestion_de_formations_en_ligne.entity.Course;
-import fr.utbm.gestion_de_formations_en_ligne.service.CourseService;
+import fr.utbm.gestion_de_formations_en_ligne.entity.Client;
+import fr.utbm.gestion_de_formations_en_ligne.entity.CourseSession;
+import fr.utbm.gestion_de_formations_en_ligne.service.ClientService;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Date;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,8 +19,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Ali
  */
-@WebServlet(name = "SearchAllCoursesAtDateServlet", urlPatterns = {"/CoursesAtDate"})
-public class SearchAllCoursesAtDateServlet extends HttpServlet {
+@WebServlet(name = "AddClientServlet", urlPatterns = {"/AddClient"})
+public class AddClientServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,12 +34,15 @@ public class SearchAllCoursesAtDateServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        CourseService cs = new CourseService();
-        Date d=(Date)request.getAttribute("date");
-        List<Course> allCourses = cs.getAllCoursesAtDateService(d);
-        request.setAttribute("allCourses", allCourses);
-        request.getRequestDispatcher("jsp/Courses.jsp").forward(request, response);
-        /** créer une date à partir d'un string (string généré par type date en html)*/
+        Client c = new Client();
+        c.setAddress(request.getAttribute("address").toString());
+        c.setCourseSession((CourseSession) request.getAttribute("courseSession"));
+        c.setEmail(request.getAttribute("email").toString());
+        c.setFirstname(request.getAttribute("firstName").toString());
+        c.setLastname(request.getAttribute("lastName").toString());
+        ClientService cs = new ClientService();
+        cs.insertClientService(c);
+        request.getRequestDispatcher("index.html").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
