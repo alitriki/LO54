@@ -24,6 +24,11 @@
         <servlet-name>AddClientServlet</servlet-name>
         <servlet-class>fr.utbm.gestion_de_formations_en_ligne.servlet.AddClientServlet</servlet-class>
     </servlet>
+      <servlet>
+        <servlet-name>CoursSessionsServlet</servlet-name>
+        <servlet-class>fr.utbm.gestion_de_formations_en_ligne.servlet.CoursSessionsServlet</servlet-class>
+    </servlet>
+    
     
     <servlet-mapping>
         <servlet-name>SearchAllCoursesServlet</servlet-name>
@@ -49,7 +54,10 @@
         <servlet-name>AddClientServlet</servlet-name>
         <url-pattern>/AddClient</url-pattern>
     </servlet-mapping>
-    
+     <servlet-mapping>
+        <servlet-name>CoursSessionsServlet</servlet-name>
+        <url-pattern>/CourseSessions</url-pattern>
+    </servlet-mapping>
     
     
     <session-config>
