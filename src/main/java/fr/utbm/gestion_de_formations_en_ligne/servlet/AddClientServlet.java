@@ -19,7 +19,6 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Ali
  */
-@WebServlet(name = "AddClientServlet", urlPatterns = {"/AddClient"})
 public class AddClientServlet extends HttpServlet {
 
     /**

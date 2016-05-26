@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Ali
  */
-@WebServlet(name = "SearchAllLocations", urlPatterns = {"/AllLocations"})
+
 public class SearchAllLocationsServlet extends HttpServlet {
 
     /**

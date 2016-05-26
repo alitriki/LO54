@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Ali
  */
-@WebServlet(name = "SearchAllCoursesAtLocationServlet", urlPatterns = {"/CoursesAtLocation"})
+
 public class SearchAllCoursesAtLocationServlet extends HttpServlet {
 
     /**
@@ -41,7 +41,7 @@ public class SearchAllCoursesAtLocationServlet extends HttpServlet {
          * pass City in parameter
          */
         Location l=new Location();
-        l.setCity(request.getAttribute("city").toString());
+        l.setCity(request.getParameter("city"));
         List<Course> allCourses = cs.getAllCoursesAtLocationService(l);
         request.setAttribute("allCourses", allCourses);
         request.getRequestDispatcher("jsp/Courses.jsp").forward(request, response);

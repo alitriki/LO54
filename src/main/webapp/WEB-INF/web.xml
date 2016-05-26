@@ -8,6 +8,23 @@
         <servlet-name>SearchAllCoursesKeyWordServlet</servlet-name>
         <servlet-class>fr.utbm.gestion_de_formations_en_ligne.servlet.SearchAllCoursesKeyWordServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SearchAllCoursesAtLocationServlet</servlet-name>
+        <servlet-class>fr.utbm.gestion_de_formations_en_ligne.servlet.SearchAllCoursesAtLocationServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SearchAllCoursesAtDateServlet</servlet-name>
+        <servlet-class>fr.utbm.gestion_de_formations_en_ligne.servlet.SearchAllCoursesAtDateServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SearchAllLocationsServlet</servlet-name>
+        <servlet-class>fr.utbm.gestion_de_formations_en_ligne.servlet.SearchAllLocationsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddClientServlet</servlet-name>
+        <servlet-class>fr.utbm.gestion_de_formations_en_ligne.servlet.AddClientServlet</servlet-class>
+    </servlet>
+    
     <servlet-mapping>
         <servlet-name>SearchAllCoursesServlet</servlet-name>
         <url-pattern>/Courses</url-pattern>
@@ -16,6 +33,25 @@
         <servlet-name>SearchAllCoursesKeyWordServlet</servlet-name>
         <url-pattern>/CoursesKeyWord</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchAllCoursesAtLocationServlet</servlet-name>
+        <url-pattern>/CoursesAtLocation</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchAllCoursesAtDateServlet</servlet-name>
+        <url-pattern>/CoursesAtDate</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchAllLocationsServlet</servlet-name>
+        <url-pattern>/AllLocations</url-pattern>
+    </servlet-mapping>
+     <servlet-mapping>
+        <servlet-name>AddClientServlet</servlet-name>
+        <url-pattern>/AddClient</url-pattern>
+    </servlet-mapping>
+    
+    
+    
     <session-config>
         <session-timeout>
             30

@@ -38,7 +38,7 @@ public class SearchAllCoursesKeyWordServlet extends HttpServlet {
         /**
          * pass key in parameter
          */
-        List<Course> allCourses = cs.getAllCoursesService(request.getAttribute("key").toString());
+        List<Course> allCourses = cs.getAllCoursesService(request.getParameter("key"));
         request.setAttribute("allCourses", allCourses);
         request.getRequestDispatcher("jsp/Courses.jsp").forward(request, response);
     }

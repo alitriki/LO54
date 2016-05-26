@@ -4,6 +4,7 @@
     Author     : Ali
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="fr.utbm.gestion_de_formations_en_ligne.entity.Course"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.Iterator"%>
@@ -16,10 +17,23 @@
     </head>
     <body>
     <center>
-       
-        <%out.print(request.getAttribute("allCourses"));%>
-           
-        
+        <table border="1">
+            <th>title</th>
+            <th>description</th>
+                <c:forEach items="${requestScope.allCourses}" var="course">
+                <tr>
+                    <td>
+                        <c:out value="${course.title}"/>
+                    </td>
+                    <td>
+                        <c:out value="${course.description}"/> 
+                    </td>     
+                </tr>
+            </c:forEach>    
+        </table>
+
+
+
     </center>
-    </body>
+</body>
 </html>

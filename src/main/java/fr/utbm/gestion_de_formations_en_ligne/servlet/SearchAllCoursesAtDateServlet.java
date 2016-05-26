@@ -21,7 +21,6 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Ali
  */
-@WebServlet(name = "SearchAllCoursesAtDateServlet", urlPatterns = {"/CoursesAtDate"})
 public class SearchAllCoursesAtDateServlet extends HttpServlet {
 
     /**

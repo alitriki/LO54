@@ -32,8 +32,8 @@ public class HibernateCourseDAO {
 
     public List<Course> getAllCoursesHibernate(String motCle) {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        Query query = session.createQuery("from Course as course where course.title like ?");
-        query.setString(0,"%"+motCle+"%");
+        Query query = session.createQuery("from Course as course where course.title like  ?");
+        query.setString(0, "%" + motCle + "%");
         List<Course> listCourse = query.list();
         return listCourse;
     }
@@ -43,16 +43,16 @@ public class HibernateCourseDAO {
 
         Query query = session.createQuery("from Course");
         List<Course> listCourse = query.list();
-        
+
         List<Course> listCourseOK = new ArrayList<>();
-        
-        for (Course c : listCourse){
+
+        for (Course c : listCourse) {
             for (Iterator it = c.getCourseSessions().iterator(); it.hasNext();) {
                 CourseSession cs = (CourseSession) it.next();
-                System.out.println(cs.getStartDate()+"Date de cs");
-                System.out.println(date+"date param");
-                
-                if (cs.getStartDate().after(date)){
+                System.out.println(cs.getStartDate() + "Date de cs");
+                System.out.println(date + "date param");
+
+                if (cs.getStartDate().after(date)) {
                     listCourseOK.add(c);
                 }
             }
@@ -63,10 +63,27 @@ public class HibernateCourseDAO {
     public List<Course> getAllCoursesAtLocationHibernate(Location location) {
         Session session = HibernateUtil.getSessionFactory().openSession();
 
-        Query query = session.createQuery("from Course as course where location.city = ?");
-        query.setString(0, location.getCity());
+        Query query = session.createQuery("from Course");
         List<Course> listCourse = query.list();
-        return listCourse;
+
+        List<Course> listCourseOK = new ArrayList<>();
+
+        for (Course c : listCourse) {
+            for (Iterator it = c.getCourseSessions().iterator(); it.hasNext();) {
+                CourseSession cs = (CourseSession) it.next();
+//                System.out.println(c.getTitle() + "  " + cs.getLocation().getCity() + " city");
+
+                if (cs.getLocation().getCity().equalsIgnoreCase(location.getCity())) {
+//                    System.out.println(c.getTitle() + " added");
+                    listCourseOK.add(c);
+
+                }
+//                else{
+//                    System.out.println(c.getTitle()+" not added");
+//                }
+            }
+        }
+        return listCourseOK;
     }
 
 }
