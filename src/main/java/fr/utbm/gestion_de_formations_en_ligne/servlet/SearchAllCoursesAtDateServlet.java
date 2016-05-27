@@ -8,11 +8,14 @@ package fr.utbm.gestion_de_formations_en_ligne.servlet;
 import fr.utbm.gestion_de_formations_en_ligne.entity.Course;
 import fr.utbm.gestion_de_formations_en_ligne.service.CourseService;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -36,11 +39,21 @@ public class SearchAllCoursesAtDateServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         CourseService cs = new CourseService();
-        Date d=(Date)request.getAttribute("date");
+        DateFormat formatter;
+        Date d = null;
+        try {
+            formatter = new SimpleDateFormat("yyyy-MM-dd");
+            d = formatter.parse(request.getParameter("date"));
+        } catch (ParseException ex) {
+            Logger.getLogger(SearchAllCoursesAtDateServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         List<Course> allCourses = cs.getAllCoursesAtDateService(d);
         request.setAttribute("allCourses", allCourses);
         request.getRequestDispatcher("jsp/Courses.jsp").forward(request, response);
-        /** créer une date à partir d'un string (string généré par type date en html)*/
+        /**
+         * créer une date à partir d'un string (string généré par type date en html)
+         */
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

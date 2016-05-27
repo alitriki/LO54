@@ -39,7 +39,7 @@ public class SearchAllLocationsServlet extends HttpServlet {
         /**
          * create Locations JSP
          */
-        request.getRequestDispatcher("jsp/Locations.jsp").forward(request, response);
+        request.getRequestDispatcher("jsp/CourseSessions.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -8,9 +8,9 @@ package fr.utbm.gestion_de_formations_en_ligne.servlet;
 import fr.utbm.gestion_de_formations_en_ligne.entity.Client;
 import fr.utbm.gestion_de_formations_en_ligne.entity.CourseSession;
 import fr.utbm.gestion_de_formations_en_ligne.service.ClientService;
+import fr.utbm.gestion_de_formations_en_ligne.service.CourseSessionService;
 import java.io.IOException;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -33,14 +33,19 @@ public class AddClientServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        CourseSession cs=new CourseSession();
+        CourseSessionService css=new CourseSessionService();
+        cs=css.getCourseSessionById(10);
+        
         Client c = new Client();
-        c.setAddress(request.getAttribute("address").toString());
-        c.setCourseSession((CourseSession) request.getAttribute("courseSession"));
-        c.setEmail(request.getAttribute("email").toString());
-        c.setFirstname(request.getAttribute("firstName").toString());
-        c.setLastname(request.getAttribute("lastName").toString());
-        ClientService cs = new ClientService();
-        cs.insertClientService(c);
+        c.setAddress(request.getParameter("address"));
+        c.setCourseSession(cs);
+        c.setEmail(request.getParameter("email"));
+        c.setFirstname(request.getParameter("firstName"));
+        c.setLastname(request.getParameter("lastName"));
+        c.setPhone(request.getParameter("phone"));
+        ClientService cse = new ClientService();
+        cse.insertClientService(c);
         request.getRequestDispatcher("index.html").forward(request, response);
     }
 
