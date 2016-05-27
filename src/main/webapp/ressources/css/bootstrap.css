@@ -4964,6 +4964,22 @@ a.list-group-item-danger.active:focus {
 .panel-default > .panel-footer + .panel-collapse .panel-body {
   border-bottom-color: #ddd;
 }
+
+.panel-black {
+  border-color: #000;
+}
+.panel-black > .panel-heading {
+  color: #FFF;
+  background-color: #333333;
+  border-color: #000;
+}
+.panel-black > .panel-heading + .panel-collapse .panel-body {
+  border-top-color: #000;
+}
+.panel-black > .panel-footer + .panel-collapse .panel-body {
+  border-bottom-color: #000;
+}
+
 .panel-primary {
   border-color: #428bca;
 }
