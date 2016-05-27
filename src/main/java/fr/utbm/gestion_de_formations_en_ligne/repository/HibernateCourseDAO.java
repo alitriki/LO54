@@ -86,4 +86,18 @@ public class HibernateCourseDAO {
         return listCourseOK;
     }
 
+    public List<CourseSession> getAllCourseSessions(String code) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Query query = session.createQuery("from Course as course where course.code=?");
+        query.setString(0,code);
+        Course c=(Course) query.uniqueResult();
+        List<CourseSession> list=new ArrayList<>();;
+        for (Iterator it = c.getCourseSessions().iterator(); it.hasNext();) {
+                CourseSession cs = (CourseSession) it.next();
+                list.add(cs);
+        }
+        return list;
+        
+    }
+
 }

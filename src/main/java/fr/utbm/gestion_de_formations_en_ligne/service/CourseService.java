@@ -6,6 +6,7 @@
 package fr.utbm.gestion_de_formations_en_ligne.service;
 
 import fr.utbm.gestion_de_formations_en_ligne.entity.Course;
+import fr.utbm.gestion_de_formations_en_ligne.entity.CourseSession;
 import fr.utbm.gestion_de_formations_en_ligne.entity.Location;
 import fr.utbm.gestion_de_formations_en_ligne.repository.HibernateCourseDAO;
 import java.util.Date;
@@ -35,5 +36,9 @@ public class CourseService {
     public List<Course> getAllCoursesAtDateService(Date date) {
         HibernateCourseDAO hcd = new HibernateCourseDAO();
         return hcd.getAllCoursesAtDateHibernate(date);
+    }
+    public List<CourseSession> getAllCourseSessions(String code) {
+        HibernateCourseDAO hcd = new HibernateCourseDAO();
+        return hcd.getAllCourseSessions(code);
     }
 }
