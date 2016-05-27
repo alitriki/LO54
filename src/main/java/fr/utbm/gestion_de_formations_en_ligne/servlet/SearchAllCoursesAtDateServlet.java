@@ -38,6 +38,8 @@ public class SearchAllCoursesAtDateServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
+        System.out.println("test "+request.getParameter("date"));
         CourseService cs = new CourseService();
         DateFormat formatter;
         Date d = null;

@@ -7,6 +7,8 @@ package fr.utbm.gestion_de_formations_en_ligne.repository;
 
 import fr.utbm.gestion_de_formations_en_ligne.entity.Location;
 import fr.utbm.gestion_de_formations_en_ligne.util.HibernateUtil;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -19,9 +21,23 @@ public class HibernateLocationDAO {
 
     public List<String> getAllLocationsHibernate() {
         Session session = HibernateUtil.getSessionFactory().openSession();
+       List<String> listCities = new ArrayList<>();
+        try {
 
-        Query query = session.createQuery("city from Location");
-        List<String> listLocation = query.list();
-        return listLocation;
+            Query query = session.createQuery("from Location");
+            List<Location> listLocations = query.list();
+            
+            Iterator it = listLocations.iterator();
+            while (it.hasNext()) {
+
+                Location c = (Location) it.next();
+//                System.out.println("cityyy  " +c.getCity());
+                listCities.add(c.getCity());
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+        return listCities;
     }
 }
