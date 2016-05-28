@@ -100,4 +100,12 @@ public class HibernateCourseDAO {
         
     }
 
+    public Course getCourseByCode(String code) {
+       Session session = HibernateUtil.getSessionFactory().openSession();
+        Query query = session.createQuery("from Course as course where course.code=?");
+        query.setString(0,code);
+        Course c=(Course) query.uniqueResult();
+        return c;
+    }
+
 }

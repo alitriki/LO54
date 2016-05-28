@@ -5,14 +5,13 @@
  */
 package fr.utbm.gestion_de_formations_en_ligne.servlet;
 
+import fr.utbm.gestion_de_formations_en_ligne.entity.Course;
 import fr.utbm.gestion_de_formations_en_ligne.entity.CourseSession;
 import fr.utbm.gestion_de_formations_en_ligne.service.CourseService;
+import fr.utbm.gestion_de_formations_en_ligne.service.LocationService;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Iterator;
 import java.util.List;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -38,9 +37,14 @@ public class CoursSessionsServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String code=request.getParameter("code");
         CourseService cs=new CourseService();
+        Course c=cs.getCourseByCode(code);
+        request.setAttribute("course", c);
         List<CourseSession> list=cs.getAllCourseSessions(code);
         request.setAttribute("allCourseSessions", list);
-        request.getRequestDispatcher("jsp/CourseSessions.jsp").forward(request, response);
+        LocationService ls = new LocationService();
+        List<String> allLocations = ls.getAllLocationsService();
+        request.setAttribute("allLocations", allLocations);
+        request.getRequestDispatcher("jsp/Sessions.jsp").forward(request, response);
          
         
     }

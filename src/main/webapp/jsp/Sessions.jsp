@@ -84,37 +84,47 @@
             </nav>
 
             <div>
-                <div class="panel panel-black" style="">
+                <div class="panel panel-black">
                     <div class="panel-heading text-center">
-                        Nos cours
+                        Les sessions
                     </div>
-                    <div class="panel-body" style="max-height: 10;overflow-y: auto">
-                        <c:forEach items="${requestScope.allCourses}" var="course">
-                            <div class="col-sm-6 col-md-3">
-                                <div class="thumbnail">
-                                    <a href="">
-                                        <img src="ressources/img/${course.picture}" alt="..." class="img-responsive img-rounded" style="width:200px">
-                                    </a>
-                                    <div class="caption text-center">
-                                        <h3 class="text-capitalize">${course.code}</h3>
-                                        <h4>
-                                            <strong>${course.title}</strong>
-                                        </h4>
-                                        <p>
-                                            ${course.description}
-                                        </p>
-                                        <form action="CourseSessions" method="POST">
-                                            <input type="hidden"  name="code" value="${course.code}"></input>
-                                            <button  class="btn btn-default btn-block" type="submit">Sessions</button>
-                                        </form>
-                                       
-                                    </div>
+
+                    <div class="panel-body" style="min-height: 10; max-height: 10;overflow-y: scroll"> 
+
+                        <div class="col-xs-4">
+                            <div class="thumbnail">
+                                <img src="ressources/img/${requestScope.course.picture}" alt="..." class="img-responsive img-rounded" style="width:300px"/>
+                                <div class="caption text-center">
+                                    <h3 class="text-capitalize">${requestScope.course.code}</h3>
+                                    <h4>
+                                        <strong>${requestScope.course.title}</strong>
+                                    </h4>
+                                    <p>${requestScope.course.description}</p>
                                 </div>
                             </div>
-                        </c:forEach>
-                    </div>
+                        </div>
+
+                        <div class="col-xs-8">
+                            <c:forEach items="${requestScope.allCourseSessions}" var="courseSession">
+                                <div class="col-sm-6 col-md-4">
+                                    <div class="thumbnail">
+                                        <img src="ressources/img/session.jpg" alt="..." class="img-responsive img-rounded" style="width:100px">
+                                            <div class="caption">
+                                                <blockquote>
+                                                    Commence le :
+                                                    <footer>
+                                                        ${courseSession.startDate}
+                                                    </footer>
+                                                </blockquote>
+                                                <p><a href="#"> <button class="btn btn-default btn-block"> Inscription</button> </a></p>
+                                            </div>
+                                    </div>   
+                                </div>
+                            </c:forEach>
+                        </div>
+                    </div> 
                 </div>
-            </div> 
+            </div>
         </div>
 
 
