@@ -79,7 +79,4 @@ public class Course implements java.io.Serializable {
         return "Course{" + "code=" + code + ", title=" + title + ", description=" + description + ", picture=" + picture + ", courseSessions=" + courseSessions + '}';
     }
     
-    
-   
-
 }

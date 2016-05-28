@@ -29,7 +29,7 @@
                         </ul>
                         <form class="navbar-form navbar-right" role="search" action="CoursesKeyWord" method="POST">
                             <div class="form-group">
-                                <input type="text" name="key" class="form-control" placeholder="Mot clé de cours">
+                                <input type="text" name="key" class="form-control" placeholder="Mot clÃ© de cours">
                             </div>
                             <button type="submit" class="btn btn-default">Rechercher</button>
                         </form>
@@ -37,7 +37,7 @@
                         <!--  -->
                         <ul class="nav navbar-nav">
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Recherche avancée <span class="caret"></span></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Recherche avancÃ©e <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li>
                                         <div class="col-xs-12">                 		

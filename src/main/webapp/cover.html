@@ -85,159 +85,98 @@
         
         <div>
         	<div class="panel panel-black" style="">
+            
             	<div class="panel-heading text-center">
-                	Nos cours
+                	Inscription
                 </div>
-                <div class="panel-body" style="max-height: 10;overflow-y: auto">
                 
-                  <div class="col-sm-6 col-md-3">
+                <div class="panel-body" style="min-height: 10; max-height: 10;overflow-y: scroll"> 
+                
+                  <div class="col-xs-4">
                     <div class="thumbnail">
-                      <a href="">
-                      <img src="ressources/img/BD50.png" alt="..." class="img-responsive img-rounded" style="width:200px">
-                      </a>
+                      <img src="ressources/img/BD50.png" alt="..." class="img-responsive img-rounded" style="width:300px"/>
                       <div class="caption text-center">
                         <h3 class="text-capitalize">BD50</h3>
                         <h4>
                         <strong>Conception des bases de données</strong>
                         </h4>
-                        <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        </p>
-                        <a href="#" class="btn btn-default btn-block" role="button">Sessions</a>
+                        <div class="caption">
+                            <blockquote>
+                            Session du :
+                            	<footer>
+                                	01/01/2016 au 15/01/2016
+                                </footer>
+                            </blockquote>
+                          </div>
+                        
                       </div>
                     </div>
                   </div>
                   
-                  <div class="col-sm-6 col-md-3">
-                    <div class="thumbnail">
-                      <a href="">
-                      <img src="ressources/img/GL52.png" alt="..." class="img-responsive img-rounded" style="width:200px">
-                      </a>
-                      <div class="caption text-center">
-                        <h3 class="text-capitalize">GL52</h3>
-                        <h4>
-                        <strong>Génie Logiciel et Conception</strong>
-                        </h4>
-                        <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        </p>
-                        <a href="#" class="btn btn-default btn-block" role="button">Sessions</a>
-                      </div>
-                    </div>
+                  <div class="col-xs-8">
+                   	
+                   		   <br />	
+                           <br />
+                           <br />
+                           <br />
+                           <br />
+                  
+                  	<form id="client" class="form" method="post" action="">
+                    	<div class="col-xs-6">
+                          <label class="label label-default" for="nom">Nom</label>
+                          <input class="form-control input-lg nom" type="text" name="nom" id="nom" required="required" spellcheck="false" tabindex="1" placeholder="Nom" maxlength="20"/>
+                        </div><!--nom -->
+                         
+                        <div class="col-xs-6">
+                          <label class="label label-default" for="prenoms">Prénom</label>
+                          <input class="form-control input-lg prenom" type="text" name="prenoms" id="prenoms" required="required" spellcheck="false" tabindex="2" placeholder="Prénoms du patient" maxlength="35"/>
+                        </div><!--prénoms -->
+                        
+                           <br />	
+                           <br />
+                           <br />
+                           <br /> 
+                           
+                        
+                        <div class="col-xs-6">
+                          <label class="label label-default" for="telephoneDomicile">Téléphone</label>
+                          <input class="form-control input-lg telephone" type="tel" name="telephone" id="telephone" spellcheck="false" tabindex="3" placeholder="Numéro de téléphone" maxlength="13" required="required"/>
+           				</div> <!--telephone 1 -->
+                        
+                        <div class="col-xs-6">
+                            <label class="label label-default" for="email">E-Mail</label>
+                            <input class="form-control input-lg email" type="email" name="email" id="email" tabindex="4" placeholder="Adresse électronique" maxlength="35"/>
+          				</div> <!--E-Mail --> 
+                        
+                           <br />	
+                           <br />
+                           <br />
+                           <br /> 
+                           
+                         
+                        <div class="col-xs-12">
+                          <label class="label label-default" for="adresse">Adresse</label>
+                          <input class="form-control input-lg adresse" type="text" name="adresse" id="adresse" tabindex="5" placeholder="Adresse" maxlength="35"  required="required"/>
+                        </div> <!--Adresse -->   
+                           
+                           <br />	
+                           <br />
+                           <br />
+                           <br /> 
+                           
+                           <div class="col-xs-6 text-left">
+                            <button type="reset" class="btn btn-danger btn-lg">Annuler</button>
+                            
+                           </div>
+                           
+                           <div class="col-xs-6 text-right">
+                            <button type="submit" class="btn btn-success btn-lg">Valider</button>  
+                           </div>
+           
+                    </form>
+            
                   </div>
-                  
-                  <div class="col-sm-6 col-md-3">
-                    <div class="thumbnail">
-                      <a href="">
-                      <img src="ressources/img/EI04.png" alt="..." class="img-responsive img-rounded" style="width:200px">
-                      </a>
-                      <div class="caption text-center">
-                        <h3 class="text-capitalize">EI04</h3>
-                        <h4>
-                        <strong>Industrial buying and selling</strong>
-                        </h4>
-                        <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        </p>
-                        <a href="#" class="btn btn-default btn-block" role="button">Sessions</a>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div class="col-sm-6 col-md-3">
-                    <div class="thumbnail">
-                      <a href="">
-                      <img src="ressources/img/LG00.png" alt="..." class="img-responsive img-rounded" style="width:200px">
-                      </a>
-                      <div class="caption text-center">
-                        <h3 class="text-capitalize">LG00</h3>
-                        <h4>
-                        <strong>Allemand, vrai débutant</strong>
-                        </h4>
-                        <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        </p>
-                        <a href="#" class="btn btn-default btn-block" role="button">Sessions</a>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div class="col-sm-6 col-md-3">
-                    <div class="thumbnail">
-                      <a href="">
-                      <img src="ressources/img/LO54.png" alt="..." class="img-responsive img-rounded" style="width:200px">
-                      </a>
-                      <div class="caption text-center">
-                        <h3 class="text-capitalize">LO54</h3>
-                        <h4>
-                        <strong>Java Enterprise Applications
-</strong>
-                        </h4>
-                        <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        </p>
-                        <a href="#" class="btn btn-default btn-block" role="button">Sessions</a>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  
-                  <div class="col-sm-6 col-md-3">
-                    <div class="thumbnail">
-                      <a href="">
-                      <img src="ressources/img/MI44.png" alt="..." class="img-responsive img-rounded" style="width:200px">
-                      </a>
-                      <div class="caption text-center">
-                        <h3 class="text-capitalize">MI44</h3>
-                        <h4>
-                        <strong>Sécurité des systèmes informatiques</strong>
-                        </h4>
-                        <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        </p>
-                        <a href="#" class="btn btn-default btn-block" role="button">Sessions</a>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div class="col-sm-6 col-md-3">
-                    <div class="thumbnail">
-                      <a href="">
-                      <img src="ressources/img/RE51.png" alt="..." class="img-responsive img-rounded" style="width:200px">
-                      </a>
-                      <div class="caption text-center">
-                        <h3 class="text-capitalize">RE51</h3>
-                        <h4>
-                        <strong>Algorithmiques distribuées</strong>
-                        </h4>
-                        <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        </p>
-                        <a href="#" class="btn btn-default btn-block" role="button">Sessions</a>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div class="col-sm-6 col-md-3">
-                    <div class="thumbnail">
-                      <a href="">
-                      <img src="ressources/img/VI51.png" alt="..." class="img-responsive img-rounded" style="width:200px">
-                      </a>
-                      <div class="caption text-center">
-                        <h3 class="text-capitalize">VI51</h3>
-                        <h4>
-                        <strong>Artificial Intelligence for games</strong>
-                        </h4>
-                        <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        </p>
-                        <a href="#" class="btn btn-default btn-block" role="button">Sessions</a>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  
-                </div>
+                  	
             </div>
         </div> 
 	</div>
