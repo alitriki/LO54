@@ -27,9 +27,9 @@
                             <li class="active"><a href="#">Accueil <span class="sr-only">(current)</span></a></li>
 
                         </ul>
-                        <form class="navbar-form navbar-right" role="search" action="/allcourses">
+                        <form class="navbar-form navbar-right" role="search" action="CoursesKeyWord" method="POST">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Mot clé de cours">
+                                <input type="text" name="key" class="form-control" placeholder="Mot clé de cours">
                             </div>
                             <button type="submit" class="btn btn-default">Rechercher</button>
                         </form>
