@@ -41,4 +41,8 @@ public class CourseService {
         HibernateCourseDAO hcd = new HibernateCourseDAO();
         return hcd.getAllCourseSessions(code);
     }
+    public Course getCourseByCode(String code) {
+        HibernateCourseDAO hcd = new HibernateCourseDAO();
+        return hcd.getCourseByCode(code);
+    }
 }
