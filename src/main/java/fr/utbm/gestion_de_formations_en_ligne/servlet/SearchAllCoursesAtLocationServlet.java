@@ -8,6 +8,7 @@ package fr.utbm.gestion_de_formations_en_ligne.servlet;
 import fr.utbm.gestion_de_formations_en_ligne.entity.Course;
 import fr.utbm.gestion_de_formations_en_ligne.entity.Location;
 import fr.utbm.gestion_de_formations_en_ligne.service.CourseService;
+import fr.utbm.gestion_de_formations_en_ligne.service.LocationService;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -44,7 +45,12 @@ public class SearchAllCoursesAtLocationServlet extends HttpServlet {
         l.setCity(request.getParameter("city"));
         List<Course> allCourses = cs.getAllCoursesAtLocationService(l);
         request.setAttribute("allCourses", allCourses);
-        request.getRequestDispatcher("jsp/Courses.jsp").forward(request, response);
+        
+        LocationService ls = new LocationService();
+        List<String> allLocations = ls.getAllLocationsService();
+        request.setAttribute("allLocations", allLocations);
+        
+        request.getRequestDispatcher("jsp/Accueil.jsp").forward(request, response);
         }
     
 

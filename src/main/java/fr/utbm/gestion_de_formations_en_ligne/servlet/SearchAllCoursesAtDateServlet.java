@@ -7,6 +7,7 @@ package fr.utbm.gestion_de_formations_en_ligne.servlet;
 
 import fr.utbm.gestion_de_formations_en_ligne.entity.Course;
 import fr.utbm.gestion_de_formations_en_ligne.service.CourseService;
+import fr.utbm.gestion_de_formations_en_ligne.service.LocationService;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -52,7 +53,11 @@ public class SearchAllCoursesAtDateServlet extends HttpServlet {
 
         List<Course> allCourses = cs.getAllCoursesAtDateService(d);
         request.setAttribute("allCourses", allCourses);
-        request.getRequestDispatcher("jsp/Courses.jsp").forward(request, response);
+        
+        LocationService ls = new LocationService();
+        List<String> allLocations = ls.getAllLocationsService();
+        request.setAttribute("allLocations", allLocations);
+        request.getRequestDispatcher("jsp/Accueil.jsp").forward(request, response);
         /**
          * créer une date à partir d'un string (string généré par type date en html)
          */

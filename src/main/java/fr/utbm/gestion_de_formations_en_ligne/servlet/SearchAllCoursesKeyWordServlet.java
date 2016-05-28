@@ -7,6 +7,7 @@ package fr.utbm.gestion_de_formations_en_ligne.servlet;
 
 import fr.utbm.gestion_de_formations_en_ligne.entity.Course;
 import fr.utbm.gestion_de_formations_en_ligne.service.CourseService;
+import fr.utbm.gestion_de_formations_en_ligne.service.LocationService;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -40,7 +41,11 @@ public class SearchAllCoursesKeyWordServlet extends HttpServlet {
          */
         List<Course> allCourses = cs.getAllCoursesService(request.getParameter("key"));
         request.setAttribute("allCourses", allCourses);
-        request.getRequestDispatcher("jsp/Courses.jsp").forward(request, response);
+        
+        LocationService ls = new LocationService();
+        List<String> allLocations = ls.getAllLocationsService();
+        request.setAttribute("allLocations", allLocations);
+        request.getRequestDispatcher("jsp/Accueil.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

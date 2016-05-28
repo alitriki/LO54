@@ -42,18 +42,18 @@
                                     <li>
                                         <div class="col-xs-12">                 		
 
-                                            <form class="form form-group">
+                                            <form class="form form-group" action="CoursesAtLocation" method="POST">
                                                 <label class="label label-default">Recherche par lieu</label>
 
                                                 <div class="input-group">
 
-                                                    <select name="location" id="location" class="form-control">
+                                                    <select name="city" id="location" class="form-control">
                                                         <c:forEach items="${requestScope.allLocations}" var="location">
                                                             <option id="city" name="city" value="${location}">${location}</option>
                                                         </c:forEach>
                                                     </select>
                                                     <span class="input-group-btn">
-                                                        <button class="btn btn-default" type="button">Go!</button>
+                                                        <button class="btn btn-default" type="submit">Go!</button>
                                                     </span>
                                                 </div>     
                                             </form>
@@ -64,12 +64,12 @@
                                     <br />
                                     <div class="col-xs-12">                 		
 
-                                        <form class="form-group" role="search">
+                                        <form class="form-group" role="search" action="CoursesAtDate" method="POST">
                                             <label class="label label-default">Recherche par date</label>
                                             <div class="input-group">
-                                                <input type="date" class="form-control" placeholder="date" autocomplete="off">
+                                                <input type="date" id="date" name="date" class="form-control" placeholder="date" autocomplete="off">
                                                     <span class="input-group-btn">
-                                                        <button class="btn btn-default" type="button">Go!</button>
+                                                        <button class="btn btn-default" type="submit">Go!</button>
                                                     </span>
                                             </div>     
                                         </form>

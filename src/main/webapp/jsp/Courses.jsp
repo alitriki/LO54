@@ -23,7 +23,7 @@
                 <c:forEach items="${requestScope.allCourses}" var="course">
                 <tr>
                     <td>
-                        <c:out value="${course.title}"/>
+                        aa<c:out value="${course.title}"/>
                     </td>
                     <td>
                         <c:out value="${course.description}"/> 
