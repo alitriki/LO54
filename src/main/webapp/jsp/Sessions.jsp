@@ -92,7 +92,7 @@
                     <div class="panel-body" style="min-height: 10; max-height: 10;overflow-y: scroll"> 
 
                         <div class="col-xs-4">
-                            <div class="thumbnail">
+                            <div class="thumbnail course">
                                 <img src="ressources/img/${requestScope.course.picture}" alt="..." class="img-responsive img-rounded" style="width:300px"/>
                                 <div class="caption text-center">
                                     <h3 class="text-capitalize">${requestScope.course.code}</h3>
