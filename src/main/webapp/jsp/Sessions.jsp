@@ -115,8 +115,13 @@
                                                     <footer>
                                                         ${courseSession.startDate}
                                                     </footer>
-                                                </blockquote>
-                                                <p><a href="#"> <button class="btn btn-default btn-block"> Inscription</button> </a></p>
+                                                </blockquote> 
+                                                <form action="Session" method="POST">
+                                                    <input type="hidden"  name="code" value="${requestScope.course.code}"></input>
+                                                    <input type="hidden"  name="id" value="${courseSession.id}"></input>
+                                                    <button  class="btn btn-default btn-block" type="submit">Inscription</button>
+                                                </form>
+                                                
                                             </div>
                                     </div>   
                                 </div>

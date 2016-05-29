@@ -35,6 +35,10 @@
         <servlet-name>CoursSessionsServlet</servlet-name>
         <servlet-class>fr.utbm.gestion_de_formations_en_ligne.servlet.CoursSessionsServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SessionServlet</servlet-name>
+        <servlet-class>fr.utbm.gestion_de_formations_en_ligne.servlet.SessionServlet</servlet-class>
+    </servlet>
     
     
     <servlet-mapping>
@@ -64,6 +68,10 @@
     <servlet-mapping>
         <servlet-name>CoursSessionsServlet</servlet-name>
         <url-pattern>/CourseSessions</url-pattern>
+    </servlet-mapping>
+     <servlet-mapping>
+        <servlet-name>SessionServlet</servlet-name>
+        <url-pattern>/Session</url-pattern>
     </servlet-mapping>
     
     
