@@ -92,15 +92,14 @@
                         <c:forEach items="${requestScope.allCourses}" var="course">
                             <div class="col-sm-6 col-md-3">
                                 <div class="thumbnail">
-                                    <a href="">
                                         <img src="ressources/img/${course.picture}" alt="..." class="img-responsive img-rounded" style="width:200px">
-                                    </a>
-                                    <div class="caption text-center">
-                                        <h3 class="text-capitalize">${course.code}</h3>
-                                        <h4>
+                                  
+                                    <div class="caption text-center" style="padding-top:-90%;">
+                                        <h3 class="text-capitalize" style="padding-top: -50px;">${course.code}</h3>
+                                        <h5 class="foo">
                                             <strong>${course.title}</strong>
-                                        </h4>
-                                        <p>
+                                        </h5>
+                                        <p class="foo" style="padding-top: -50px;">
                                             ${course.description}
                                         </p>
                                         <form action="CourseSessions" method="POST">
