@@ -20,7 +20,6 @@
 
                         <a class="navbar-brand" href="#">Welcome to Online Courses !</a>
                     </div>
-
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav">
