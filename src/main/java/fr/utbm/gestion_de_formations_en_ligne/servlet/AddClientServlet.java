@@ -6,10 +6,14 @@
 package fr.utbm.gestion_de_formations_en_ligne.servlet;
 
 import fr.utbm.gestion_de_formations_en_ligne.entity.Client;
+import fr.utbm.gestion_de_formations_en_ligne.entity.Course;
 import fr.utbm.gestion_de_formations_en_ligne.entity.CourseSession;
 import fr.utbm.gestion_de_formations_en_ligne.service.ClientService;
+import fr.utbm.gestion_de_formations_en_ligne.service.CourseService;
 import fr.utbm.gestion_de_formations_en_ligne.service.CourseSessionService;
+import fr.utbm.gestion_de_formations_en_ligne.service.LocationService;
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -47,7 +51,14 @@ public class AddClientServlet extends HttpServlet {
         ClientService cse = new ClientService();
         cse.insertClientService(c);
         request.setAttribute("ok", "ok");
-      request.getRequestDispatcher("Accueil.jsp").forward(request, response);
+        CourseService cs1 = new CourseService();
+        List<Course> allCourses = cs1.getAllCoursesService();
+        request.setAttribute("allCourses", allCourses);
+
+        LocationService ls = new LocationService();
+        List<String> allLocations = ls.getAllLocationsService();
+        request.setAttribute("allLocations", allLocations);
+      request.getRequestDispatcher("jsp/Accueil.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
