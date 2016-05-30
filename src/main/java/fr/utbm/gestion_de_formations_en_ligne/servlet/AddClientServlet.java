@@ -46,7 +46,8 @@ public class AddClientServlet extends HttpServlet {
         c.setPhone(request.getParameter("phone"));
         ClientService cse = new ClientService();
         cse.insertClientService(c);
-//      request.getRequestDispatcher("index.html").forward(request, response);
+        request.setAttribute("ok", "ok");
+      request.getRequestDispatcher("Accueil.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -10,6 +10,7 @@ import fr.utbm.gestion_de_formations_en_ligne.entity.CourseSession;
 import fr.utbm.gestion_de_formations_en_ligne.entity.Location;
 import fr.utbm.gestion_de_formations_en_ligne.util.HibernateUtil;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -52,7 +53,7 @@ public class HibernateCourseDAO {
                 System.out.println(cs.getStartDate() + "Date de cs");
                 System.out.println(date + "date param");
 
-                if (cs.getStartDate().after(date)) {
+                if (date.before(cs.getStartDate())) {
                     listCourseOK.add(c);
                 }
             }
@@ -91,12 +92,36 @@ public class HibernateCourseDAO {
         Query query = session.createQuery("from Course as course where course.code=?");
         query.setString(0,code);
         Course c=(Course) query.uniqueResult();
-        List<CourseSession> list=new ArrayList<>();;
+        List<CourseSession> list=new ArrayList<>();
         for (Iterator it = c.getCourseSessions().iterator(); it.hasNext();) {
                 CourseSession cs = (CourseSession) it.next();
                 list.add(cs);
         }
-        return list;
+        
+         int i,j;
+    List<CourseSession> tab=list;
+    
+    CourseSession temp = new CourseSession();
+     
+    i = 0;
+    while(i < tab.size())
+    {
+        for(j = tab.size()-1; j >= i+1 ; j--)
+        {
+            
+            if(tab.get(j).getStartDate().compareTo(tab.get(j-1).getStartDate()) > 0) 
+            {  
+                // echange des 2 elements
+                temp = tab.get(j);
+                tab.set(j,tab.get(j-1)) ;
+                tab.set(j-1,temp);
+            }
+        }
+        i++;
+    }
+        
+        
+        return tab;
         
     }
 

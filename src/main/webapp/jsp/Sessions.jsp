@@ -1,4 +1,6 @@
+<%@page import="java.util.Date"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
@@ -119,9 +121,23 @@
                                                 <form action="Session" method="POST">
                                                     <input type="hidden"  name="code" value="${requestScope.course.code}"></input>
                                                     <input type="hidden"  name="id" value="${courseSession.id}"></input>
-                                                    <button  class="btn btn-default btn-block" type="submit">Inscription</button>
+
+                                                    <jsp:useBean id="now" class="java.util.Date"/>
+                                                    <fmt:formatDate type="date" value="${now}" var="date" pattern="yyyy-MM-dd"/>
+                                                    <c:set var="date1" value="${date}"/>
+                                                   
+                                                    
+                                                    <c:choose>
+                                                        <c:when test="${courseSession.startDate >= date1}">
+                                                            <button  class="btn btn-default btn-block" type="submit">Inscription</button>
+                                                        </c:when>
+
+                                                        <c:otherwise>
+                                                            <button  class="btn btn-default btn-block" type="submit" disabled="disabled">Inscription</button>
+                                                        </c:otherwise>
+                                                    </c:choose>
                                                 </form>
-                                                
+
                                             </div>
                                     </div>   
                                 </div>
