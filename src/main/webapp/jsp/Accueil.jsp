@@ -89,32 +89,36 @@
                     <div class="panel-heading text-center">
                         Our courses
                     </div>
-                    
+
                     <div class="panel-body" style="max-height: 10;overflow-y: auto">
-                        
-                        <div class="alert alert-success text-center" id="success-alert">
-                        Registration completed successfully !
+                        <c:choose>
+                            <c:when test="${requestScope.ok=='ok'}">
+                                <div class="alert alert-success text-center" id="success-alert">
+                            Registration completed successfully !
                         </div>
+                            </c:when> 
+                        </c:choose> 
                         
+
                         <c:forEach items="${requestScope.allCourses}" var="course">
                             <div class="col-sm-6 col-md-3">
                                 <div class="thumbnail">
-                                        <img src="ressources/img/${course.picture}" alt="..." class="img-responsive img-rounded" style="width:200px">
-                                  
-                                    <div class="caption text-center" style="padding-top:-90%;">
-                                        <h3 class="text-capitalize" style="padding-top: -50px;">${course.code}</h3>
-                                        <h5 class="foo">
-                                            <strong>${course.title}</strong>
-                                        </h5>
-                                        <p class="foo" style="padding-top: -50px;">
-                                            ${course.description}
-                                        </p>
-                                        <form action="CourseSessions" method="POST">
-                                            <input type="hidden"  name="code" value="${course.code}"></input>
-                                            <button  class="btn btn-default btn-block" type="submit">Sessions</button>
-                                        </form>
-                                       
-                                    </div>
+                                    <img src="ressources/img/${course.picture}" alt="..." class="img-responsive img-rounded" style="width:200px">
+
+                                        <div class="caption text-center" style="padding-top:-90%;">
+                                            <h3 class="text-capitalize" style="padding-top: -50px;">${course.code}</h3>
+                                            <h5 class="foo">
+                                                <strong>${course.title}</strong>
+                                            </h5>
+                                            <p class="foo" style="padding-top: -50px;">
+                                                ${course.description}
+                                            </p>
+                                            <form action="CourseSessions" method="POST">
+                                                <input type="hidden"  name="code" value="${course.code}"></input>
+                                                <button  class="btn btn-default btn-block" type="submit">Sessions</button>
+                                            </form>
+
+                                        </div>
                                 </div>
                             </div>
                         </c:forEach>
@@ -124,13 +128,13 @@
         </div>
 
         <script type="text/javascript">
-        window.setTimeout(function () {
-            $("#success-alert").slideUp(500, function () {
-                 $("#success-alert").hide();
-             });
-        }, 2000);
-       </script>  
-        
+            window.setTimeout(function () {
+                $("#success-alert").slideUp(500, function () {
+                    $("#success-alert").hide();
+                });
+            }, 2000);
+        </script>  
+
         <script type="text/javascript" src="ressources/js/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="ressources/js/bootstrap.js"></script>
         <script type="text/javascript" src="ressources/js/script.js"></script>
