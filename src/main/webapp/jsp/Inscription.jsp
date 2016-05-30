@@ -24,7 +24,7 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav">
-                            <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+                            <li class="active"><a href="Courses">Home <span class="sr-only">(current)</span></a></li>
 
                         </ul>
                         <form class="navbar-form navbar-right" role="search" action="CoursesKeyWord" method="POST">
@@ -102,9 +102,9 @@
                         </h4>
                         <div class="caption">
                             <blockquote>
-                            Session du :
+                            Session from :
                             	<footer>
-                                    ${requestScope.session.startDate}   au   ${requestScope.session.endDate}
+                                    ${requestScope.session.startDate} <strong> to </strong>   ${requestScope.session.endDate}
                                 </footer>
                             </blockquote>
                           </div>
@@ -124,13 +124,13 @@
                   	<form id="client" class="form" method="post" action="AddClient">
                             <input type="hidden"  name="id" value="${requestScope.session.id}"></input>
                     	<div class="col-xs-6">
-                          <label class="label label-default" for="nom">Nom</label>
-                          <input class="form-control input-lg nom" type="text" name="lastName" id="nom" required="required" spellcheck="false" tabindex="1" placeholder="Nom" maxlength="20"/>
+                          <label class="label label-default" for="nom">Last name</label>
+                          <input class="form-control input-lg nom" type="text" name="lastName" id="nom" required="required" spellcheck="false" tabindex="1" placeholder="Last name" maxlength="20"/>
                         </div><!--nom -->
                          
                         <div class="col-xs-6">
-                          <label class="label label-default" for="prenoms">Prénom</label>
-                          <input class="form-control input-lg prenom" type="text" name="firstName" id="prenoms" required="required" spellcheck="false" tabindex="2" placeholder="Prénoms du patient" maxlength="35"/>
+                          <label class="label label-default" for="prenoms">First name</label>
+                          <input class="form-control input-lg prenom" type="text" name="firstName" id="prenoms" required="required" spellcheck="false" tabindex="2" placeholder="First name" maxlength="35"/>
                         </div><!--prénoms -->
                         
                            <br />	
@@ -140,13 +140,13 @@
                            
                         
                         <div class="col-xs-6">
-                          <label class="label label-default" for="telephoneDomicile">Téléphone</label>
-                          <input class="form-control input-lg telephone" type="tel" name="phone" id="telephone" spellcheck="false" tabindex="3" placeholder="Numéro de téléphone" maxlength="13" required="required"/>
+                          <label class="label label-default" for="telephoneDomicile">Phone</label>
+                          <input class="form-control input-lg telephone" type="tel" name="phone" id="telephone" spellcheck="false" tabindex="3" placeholder="Phone number" maxlength="13" required="required"/>
            				</div> <!--telephone 1 -->
                         
                         <div class="col-xs-6">
                             <label class="label label-default" for="email">E-Mail</label>
-                            <input class="form-control input-lg email" type="email" name="email" id="email" tabindex="4" placeholder="Adresse électronique" maxlength="35"/>
+                            <input class="form-control input-lg email" type="email" name="email" id="email" tabindex="4" placeholder="E-mail address" maxlength="35"/>
           				</div> <!--E-Mail --> 
                         
                            <br />	
@@ -156,8 +156,8 @@
                            
                          
                         <div class="col-xs-12">
-                          <label class="label label-default" for="adresse">Adresse</label>
-                          <input class="form-control input-lg adresse" type="text" name="address" id="adresse" tabindex="5" placeholder="Adresse" maxlength="35"  required="required"/>
+                          <label class="label label-default" for="adresse">Address</label>
+                          <input class="form-control input-lg adresse" type="text" name="address" id="adresse" tabindex="5" placeholder="Address" maxlength="35"  required="required"/>
                         </div> <!--Adresse -->   
                            
                            <br />	
@@ -166,12 +166,12 @@
                            <br /> 
                            
                            <div class="col-xs-6 text-left">
-                            <button type="reset" class="btn btn-danger btn-lg">Annuler</button>
+                            <button type="reset" class="btn btn-danger btn-lg">Cancel</button>
                             
                            </div>
                            
                            <div class="col-xs-6 text-right">
-                            <button type="submit" class="btn btn-success btn-lg">Valider</button>  
+                            <button type="submit" class="btn btn-success btn-lg">Submit</button>  
                            </div>
            
                     </form>
