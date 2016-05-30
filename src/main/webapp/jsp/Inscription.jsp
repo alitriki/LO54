@@ -104,7 +104,7 @@
                             <blockquote>
                             Session from :
                             	<footer>
-                                    ${requestScope.session.startDate} <strong> to </strong>   ${requestScope.session.endDate}
+                                    <fmt:formatDate type="date" value="${requestScope.session.startDate}" pattern="dd-MM-yyyy"/>  <strong> to </strong>   <fmt:formatDate type="date" value="${requestScope.session.endDate}" pattern="dd-MM-yyyy"/>
                                 </footer>
                             </blockquote>
                           </div>

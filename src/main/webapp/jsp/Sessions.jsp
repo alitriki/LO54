@@ -13,40 +13,40 @@
 
     </head>
 
-    <body>	
+    <body>	    
         <div class="container">
             <nav class="navbar navbar-inverse">
                 <div class="container-fluid">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
 
-                        <a class="navbar-brand" href="#">Bienvenue sur Online Courses !</a>
+                        <a class="navbar-brand" href="#">Welcome to Online Courses !</a>
                     </div>
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav">
-                            <li class="active"><a href="#">Accueil <span class="sr-only">(current)</span></a></li>
+                            <li class="active"><a href="Courses">Home <span class="sr-only">(current)</span></a></li>
 
                         </ul>
                         <form class="navbar-form navbar-right" role="search" action="CoursesKeyWord" method="POST">
                             <div class="form-group">
-                                <input type="text" name="key" class="form-control" placeholder="Mot clé de cours">
+                                <input type="text" name="key" class="form-control" placeholder="Key word">
                             </div>
-                            <button type="submit" class="btn btn-default">Rechercher</button>
+                            <button type="submit" class="btn btn-default">Search</button>
                         </form>
 
                         <!--  -->
                         <ul class="nav navbar-nav">
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Recherche avancée <span class="caret"></span></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Advanced search <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li>
                                         <div class="col-xs-12">                 		
 
                                             <form class="form form-group" action="CoursesAtLocation" method="POST">
-                                                <label class="label label-default">Recherche par lieu</label>
-
+                                                <label class="label label-default">Search by location</label>
+                                                <br/>
                                                 <div class="input-group">
 
                                                     <select name="city" id="location" class="form-control">
@@ -67,7 +67,8 @@
                                     <div class="col-xs-12">                 		
 
                                         <form class="form-group" role="search" action="CoursesAtDate" method="POST">
-                                            <label class="label label-default">Recherche par date</label>
+                                            <label class="label label-default">Search by date</label>
+                                            <br/>
                                             <div class="input-group">
                                                 <input type="date" id="date" name="date" class="form-control" placeholder="date" autocomplete="off">
                                                     <span class="input-group-btn">
@@ -86,9 +87,9 @@
             </nav>
 
             <div>
-                <div class="panel panel-black">
+                <div class="panel panel-black" style="">
                     <div class="panel-heading text-center">
-                        Les sessions
+                        Our sessions
                     </div>
 
                     <div class="panel-body" style="min-height: 10; max-height: 10;overflow-y: scroll"> 
@@ -113,9 +114,9 @@
                                         <img src="ressources/img/session.jpg" alt="..." class="img-responsive img-rounded" style="width:100px">
                                             <div class="caption">
                                                 <blockquote>
-                                                    Commence le :
+                                                    Start date :
                                                     <footer>
-                                                        ${courseSession.startDate}
+                                                       <fmt:formatDate type="date" value="${courseSession.startDate}" pattern="dd-MM-yyyy"/> 
                                                     </footer>
                                                 </blockquote> 
                                                 <form action="Session" method="POST">
@@ -129,11 +130,11 @@
                                                     
                                                     <c:choose>
                                                         <c:when test="${courseSession.startDate >= date1}">
-                                                            <button  class="btn btn-default btn-block" type="submit">Inscription</button>
+                                                            <button  class="btn btn-default btn-block" type="submit">Sign up</button>
                                                         </c:when>
 
                                                         <c:otherwise>
-                                                            <button  class="btn btn-default btn-block" type="submit" disabled="disabled">Inscription</button>
+                                                            <button  class="btn btn-default btn-block" type="submit" disabled="disabled">Sign up</button>
                                                         </c:otherwise>
                                                     </c:choose>
                                                 </form>
