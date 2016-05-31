@@ -18,7 +18,7 @@
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
 
-                        <a class="navbar-brand" href="#">Welcome to Online Courses !</a>
+                        <a class="navbar-brand">Welcome to Online Courses !</a>
                     </div>
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse">
@@ -94,11 +94,14 @@
                             <c:when test="${requestScope.ok=='ok'}">
                                 <div class="alert alert-success text-center" id="success-alert">
                             Registration completed successfully !
-                        </div>
+                                 </div>
                             </c:when> 
                         </c:choose> 
                         
-
+                        <div class="alert alert-danger text-center" id="" style="font-size: 10em">
+                                    Sorry ! Found no courses
+                        </div>
+                        
                         <c:forEach items="${requestScope.allCourses}" var="course">
                             <div class="col-sm-6 col-md-3">
                                 <div class="thumbnail">

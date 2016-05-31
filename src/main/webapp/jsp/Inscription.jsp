@@ -18,7 +18,7 @@
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
 
-                        <a class="navbar-brand" href="#">Welcome to Online Courses !</a>
+                        <a class="navbar-brand">Welcome to Online Courses !</a>
                     </div>
 
                     <!-- Collect the nav links, forms, and other content for toggling -->

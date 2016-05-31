@@ -10,7 +10,6 @@ import fr.utbm.gestion_de_formations_en_ligne.entity.CourseSession;
 import fr.utbm.gestion_de_formations_en_ligne.entity.Location;
 import fr.utbm.gestion_de_formations_en_ligne.util.HibernateUtil;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -33,8 +32,8 @@ public class HibernateCourseDAO {
 
     public List<Course> getAllCoursesHibernate(String motCle) {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        Query query = session.createQuery("from Course as course where course.title like  ?");
-        query.setString(0, "%" + motCle + "%");
+        Query query = session.createQuery("from Course as course where upper(course.title) like  ?");
+        query.setString(0, "%" + motCle.toUpperCase() + "%");
         List<Course> listCourse = query.list();
         return listCourse;
     }
@@ -54,7 +53,17 @@ public class HibernateCourseDAO {
                 System.out.println(date + "date param");
 
                 if (date.before(cs.getStartDate())) {
-                    listCourseOK.add(c);
+                int count = 0;
+                    for (Course c2 : listCourseOK)
+                        if (c2.equals(c))
+                        {
+                            count++;
+                        }   
+                    
+                    if (count == 0) 
+                    {
+                        listCourseOK.add(c);
+                    }
                 }
             }
         }
@@ -76,7 +85,18 @@ public class HibernateCourseDAO {
 
                 if (cs.getLocation().getCity().equalsIgnoreCase(location.getCity())) {
 //                    System.out.println(c.getTitle() + " added");
-                    listCourseOK.add(c);
+                    int count = 0;
+                    for (Course c2 : listCourseOK)
+                        if (c2.equals(c))
+                        {
+                            count++;
+                        }   
+                    
+                    if (count == 0) 
+                    {
+                        listCourseOK.add(c);
+                    }
+                    
 
                 }
 //                else{

@@ -20,7 +20,7 @@
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
 
-                        <a class="navbar-brand" href="#">Welcome to Online Courses !</a>
+                        <a class="navbar-brand" >Welcome to Online Courses !</a>
                     </div>
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -111,12 +111,12 @@
                             <c:forEach items="${requestScope.allCourseSessions}" var="courseSession">
                                 <div class="col-sm-6 col-md-4">
                                     <div class="thumbnail">
-                                        <img src="ressources/img/session.jpg" alt="..." class="img-responsive img-rounded" style="width:100px">
+                                        <img src="ressources/img/session.jpg" alt="..." class="img-responsive img-rounded" style="width:50%">
                                             <div class="caption">
-                                                <blockquote>
+                                                <blockquote class="text-center">
                                                     Start date :
                                                     <footer>
-                                                       <fmt:formatDate type="date" value="${courseSession.startDate}" pattern="dd-MM-yyyy"/> 
+                                                       <fmt:formatDate type="date" value="${courseSession.startDate}" pattern="MM-dd-yyyy"/> 
                                                     </footer>
                                                 </blockquote> 
                                                 <form action="Session" method="POST">
