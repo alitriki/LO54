@@ -39,8 +39,8 @@ public class SearchAllCoursesAtDateServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
-        System.out.println("test "+request.getParameter("date"));
+
+        System.out.println("test " + request.getParameter("date"));
         CourseService cs = new CourseService();
         DateFormat formatter;
         Date d = null;
@@ -50,16 +50,21 @@ public class SearchAllCoursesAtDateServlet extends HttpServlet {
         } catch (ParseException ex) {
             Logger.getLogger(SearchAllCoursesAtDateServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-        List<Course> allCourses = cs.getAllCoursesAtDateService(d);
-        request.setAttribute("allCourses", allCourses);
-        
+        try {
+            List<Course> allCourses = cs.getAllCoursesAtDateService(d);
+            request.setAttribute("allCourses", allCourses);
+        } catch (Exception e) {
+            request.setAttribute("dateError", "dateError");
+        }
         LocationService ls = new LocationService();
-        List<String> allLocations = ls.getAllLocationsService();
+        List<String> allLocations = null;
+        allLocations = ls.getAllLocationsService();
+
         request.setAttribute("allLocations", allLocations);
         request.getRequestDispatcher("jsp/Accueil.jsp").forward(request, response);
         /**
-         * créer une date à partir d'un string (string généré par type date en html)
+         * créer une date à partir d'un string (string généré par type date en
+         * html)
          */
     }
 

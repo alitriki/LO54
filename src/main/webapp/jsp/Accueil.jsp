@@ -97,11 +97,17 @@
                                  </div>
                             </c:when> 
                         </c:choose> 
-                        
+                        <c:if test="${requestScope.allCourses.isEmpty()}">
                         <div class="alert alert-danger text-center" id="" style="font-size: 10em">
-                                    Sorry ! Found no courses
+                                    Sorry ! No Courses Found 
                         </div>
-                        
+                        </c:if>
+                        <c:if test="${requestScope.dateError=='dateError'}">
+                        <div class="alert alert-danger text-center" id="" style="font-size: 10em">
+                                    Sorry ! Date Format Error
+                        </div>
+                        </c:if>
+                        <c:out value="${requestScope.dateError}"></c:out>
                         <c:forEach items="${requestScope.allCourses}" var="course">
                             <div class="col-sm-6 col-md-3">
                                 <div class="thumbnail">

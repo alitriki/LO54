@@ -38,7 +38,7 @@ public class HibernateCourseDAO {
         return listCourse;
     }
 
-    public List<Course> getAllCoursesAtDateHibernate(Date date) {
+    public List<Course> getAllCoursesAtDateHibernate(Date date) throws Exception {
         Session session = HibernateUtil.getSessionFactory().openSession();
 
         Query query = session.createQuery("from Course");

@@ -51,14 +51,7 @@ public class AddClientServlet extends HttpServlet {
         ClientService cse = new ClientService();
         cse.insertClientService(c);
         request.setAttribute("ok", "ok");
-        CourseService cs1 = new CourseService();
-        List<Course> allCourses = cs1.getAllCoursesService();
-        request.setAttribute("allCourses", allCourses);
-
-        LocationService ls = new LocationService();
-        List<String> allLocations = ls.getAllLocationsService();
-        request.setAttribute("allLocations", allLocations);
-      request.getRequestDispatcher("jsp/Accueil.jsp").forward(request, response);
+      request.getRequestDispatcher("Courses").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
