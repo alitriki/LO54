@@ -111,9 +111,9 @@
                             <c:forEach items="${requestScope.allCourseSessions}" var="courseSession">
                                 <div class="col-sm-6 col-md-4">
                                     <div class="thumbnail">
-                                        <img src="ressources/img/session.jpg" alt="..." class="img-responsive img-rounded" style="width:50%">
+                                        <img src="ressources/img/session.jpg" alt="..." class="img-responsive img-rounded" style="width:50%;">
                                             <div class="caption">
-                                                <blockquote class="text-center">
+                                                <blockquote class="text-center" style="font-size: 100%">
                                                     Start date :
                                                     <footer>
                                                        <fmt:formatDate type="date" value="${courseSession.startDate}" pattern="MM-dd-yyyy"/> 
