@@ -117,6 +117,8 @@
                                                     Start date :
                                                     <footer>
                                                        <fmt:formatDate type="date" value="${courseSession.startDate}" pattern="MM-dd-yyyy"/> 
+                                                       <br/>
+                                                       <strong> in </strong> ${courseSession.location.city}
                                                     </footer>
                                                 </blockquote> 
                                                 <form action="Session" method="POST">
